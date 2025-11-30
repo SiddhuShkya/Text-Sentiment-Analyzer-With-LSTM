@@ -68,6 +68,44 @@ This project is a web-based application that analyzes the sentiment of user-prov
     - Click the "Predict" button.
     - View the predicted sentiment and probability distribution.
 
+## Docker Usage
+
+### Build and Run with Docker
+
+1.  **Build the Docker image:**
+    ```bash
+    docker build -t sentiment-analyzer .
+    ```
+
+2.  **Run the container:**
+    ```bash
+    docker run -p 5000:5000 sentiment-analyzer
+    ```
+
+3.  **Access the application:**
+    Open your browser and navigate to `http://localhost:5000/`
+
+### Using Docker Compose (Optional)
+
+Create a `docker-compose.yml` file:
+```yaml
+version: '3.8'
+services:
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+    environment:
+      - FLASK_ENV=development
+```
+
+Then run:
+```bash
+docker-compose up
+```
+
 ## Model Details
 
 The model is built using Keras/TensorFlow and employs an LSTM architecture suitable for sequence processing tasks like sentiment analysis. It uses a `tokenizer.pkl` to convert text into sequences and `LSTM_MODEL.pkl` for inference.

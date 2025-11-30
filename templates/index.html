@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TxtSight - Sentiment Analysis</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fa-solid fa-fire-flame-curved"></i>
+                <h1>TxtSight</h1>
+            </div>
+            <p class="subtitle">Advanced LSTM Sentiment Analysis</p>
+        </header>
+
+        <main>
+            <div class="input-section">
+                <div class="textarea-wrapper">
+                    <textarea id="textInput" placeholder="Enter your text here to analyze sentiment..."></textarea>
+                    <div class="focus-border"></div>
+                </div>
+                <button id="analyzeBtn" class="primary-btn">
+                    <span>Analyze Sentiment</span>
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                </button>
+            </div>
+
+            <div id="loadingSpinner" class="hidden">
+                <div class="spinner"></div>
+                <p>Analyzing text patterns...</p>
+            </div>
+
+            <div id="resultsSection" class="results-container hidden">
+                <div class="sentiment-card">
+                    <h2>Detected Sentiment</h2>
+                    <div id="sentimentBadge" class="badge">
+                        <span id="sentimentIcon"></span>
+                        <span id="sentimentLabel"></span>
+                    </div>
+                </div>
+
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <h3>Confidence Scores</h3>
+                        <div class="chart-container">
+                            <canvas id="confidenceChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <h3>Probability Distribution</h3>
+                        <div class="bars-container" id="barsContainer">
+                            <!-- Bars will be injected here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 TxtSight Mini. Powered by LSTM & Flask.</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
