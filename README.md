@@ -33,6 +33,12 @@ This project is a web-based application that analyzes the sentiment of user-prov
 └── 📄 README.md                # Project documentation
 ```
 
+## User Interface (Screenshot)
+
+<img src="./screenshots/user-interface.png"
+    alt="Image Caption"
+    style="border:1px solid white; padding:1px; background:#fff; width: 3000px;" />
+
 ## Installation
 
 1.  **Clone the repository:**
